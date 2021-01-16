@@ -1,0 +1,35 @@
+<h3 *ngIf="exams; else noExam">{{ title }}</h3>
+<div class="form-group mb-6" style="width: 500px">
+    <input class="form-control" id="examTitle" placeholder="Sınav arayın" [(ngModel)]="filterText" />
+</div>
+<div class="row">
+    <ng-template #noExam>
+        <div class="alert alert-primary" role="alert">
+            Bu ders için henüz bir sınav yok!
+        </div>
+    </ng-template>
+    <table class="table" style="width: 95%">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Information</th>
+                <th scope="col">Number of questions</th>
+                <th scope="col">Added at</th>
+                <th scope="col">Start time</th>
+                <th scope="col">End time</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let exam of exams | examFilter: filterText">
+                <th scope="row">{{ exam.title }}</th>
+                <td>{{ exam.information }}</td>
+                <td>{{ exam.numberOfQuestions }}</td>
+                <td>{{ exam.addedAt | date:'short' }}</td>
+                <td>{{ exam.startTime | date:'short' }}</td>
+                <td>{{ exam.endTime | date:'short' }}</td>
+                <td><a (click)="goToExam(exam)" class="btn btn-secondary">Sınava git</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
