@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Exam } from './exam';
-declare let alertify: any;
+import { AlertifyService }  from '../services/alertify.service';
 
 @Component({
   selector: 'app-exam',
@@ -9,7 +9,7 @@ declare let alertify: any;
 })
 export class ExamComponent implements OnInit {
 
-  constructor() { }
+  constructor(private alertifyService: AlertifyService) { }
 
   title = "Sınavlar";
   filterText = "";
@@ -24,7 +24,7 @@ export class ExamComponent implements OnInit {
   }
 
   goToExam(exam: Exam) {
-    alertify.success("Sınava gidilior " + exam.title);
+    this.alertifyService.warning("Sınava gidilior " + exam.title);
   }
 
 }
