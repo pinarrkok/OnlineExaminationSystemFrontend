@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Exam } from './exam';
+import { Exam } from 'src//models/exam';
 import { AlertifyService } from '../services/alertify.service';
 import { ExamService } from '../services/exam.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-exam',
@@ -12,7 +13,8 @@ import { ExamService } from '../services/exam.service';
 export class ExamComponent implements OnInit {
 
   constructor(private alertifyService: AlertifyService,
-              private examService: ExamService) { }
+              private examService: ExamService,
+              private activatedRoute: ActivatedRoute) { }
 
   title = "Sınavlar";
   filterText = "";
@@ -20,8 +22,10 @@ export class ExamComponent implements OnInit {
   exams: Exam[] = [];
 
   ngOnInit() {
-    this.examService.getExams().subscribe(data => {
-      this.exams = data
+    this.activatedRoute.params.subscribe(params => {
+      this.examService.getExams(params["courseId"]).subscribe(data => {
+        this.exams = data
+      });
     });
   }
 

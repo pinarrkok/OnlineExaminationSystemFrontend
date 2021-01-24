@@ -1,9 +1,9 @@
-export interface Exam {
+export class Exam {
     id: number;
     title: string;
     information: string;
     numberOfQuestions: number;
-    addedAt: Date;
+    addedAt?: Date;
     startTime: Date;
     endTime: Date;
 }

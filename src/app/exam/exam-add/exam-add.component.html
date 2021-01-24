@@ -1,0 +1,39 @@
+<h3>Sınav ekle</h3>
+<form [formGroup]="examAddForm" (ngSubmit)="addExam()">
+    <div class="form-group">
+        <input type="text" id="title" name="title" 
+        formControlName="title" class="form-control" placeholder="Exam title">
+        <div class="alert alert-danger"
+        *ngIf="examAddForm?.get('title')?.hasError('required') && examAddForm?.get('title')?.dirty">
+        Exam title is required!</div>
+    </div>
+    <div class="form-group">
+        <input type="text" id="information" name="information" 
+        formControlName="information" class="form-control" placeholder="Exam information">
+        <div class="alert alert-danger"
+        *ngIf="examAddForm?.get('information')?.hasError('required') && examAddForm?.get('information')?.dirty">
+        Exam information is required!</div>
+    </div>
+    <div class="form-group">
+        <input type="number" id="numberOfQuestions" name="numberOfQuestions" 
+        formControlName="numberOfQuestions" class="form-control" placeholder="Exam numberOfQuestions">
+        <div class="alert alert-danger"
+        *ngIf="examAddForm?.get('numberOfQuestions')?.hasError('required') && examAddForm?.get('numberOfQuestions')?.dirty">
+        Exam numberOfQuestions is required!</div>
+    </div>
+    <div class="form-group">
+        <input type="text" id="startTime" name="startTime" 
+        formControlName="startTime" class="form-control" placeholder="Exam startTime">
+        <div class="alert alert-danger"
+        *ngIf="examAddForm?.get('startTime')?.hasError('required') && examAddForm?.get('startTime')?.dirty">
+        Exam startTime is required!</div>
+    </div>
+    <div class="form-group">
+        <input type="text" id="endTime" name="endTime" 
+        formControlName="endTime" class="form-control" placeholder="Exam endTime">
+        <div class="alert alert-danger"
+        *ngIf="examAddForm?.get('endTime')?.hasError('required') && examAddForm?.get('endTime')?.dirty">
+        Exam startTime is required!</div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="examAddForm.invalid">Ekle</button>
+</form>

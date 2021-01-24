@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Exam } from './exam';
+import { Exam } from 'src/models/exam';
 
 @Pipe({
   name: 'examFilter'

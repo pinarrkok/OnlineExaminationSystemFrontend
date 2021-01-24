@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,9 +10,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { ContentComponent } from './content/content.component';
 import { ExamFilterPipe } from './exam/exam-filter.pipe';
 import { AlertifyService } from './services/alertify.service';
+import { ExamAddComponent } from './exam/exam-add/exam-add.component';
+import { AccountService } from './services/account.service';
+import { LoginGuard } from './login/login.guard';
 
 @NgModule({
   declarations: [
@@ -22,16 +24,17 @@ import { AlertifyService } from './services/alertify.service';
     RegisterComponent,
     NavbarComponent,
     SidebarComponent,
-    ContentComponent,
-    ExamFilterPipe
+    ExamFilterPipe,
+    ExamAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AlertifyService],
+  providers: [AlertifyService, AccountService, LoginGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
