@@ -9,7 +9,6 @@ import { ExamComponent } from './exam/exam.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { ExamFilterPipe } from './exam/exam-filter.pipe';
 import { AlertifyService } from './services/alertify.service';
 import { ExamAddComponent } from './exam/exam-add/exam-add.component';
@@ -23,7 +22,6 @@ import { LoginGuard } from './login/login.guard';
     LoginComponent,
     RegisterComponent,
     NavbarComponent,
-    SidebarComponent,
     ExamFilterPipe,
     ExamAddComponent
   ],

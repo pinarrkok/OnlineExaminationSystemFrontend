@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { LoginGuard } from './login.guard';
 import { AccountService } from '../services/account.service';
 import { AlertifyService } from '../services/alertify.service';
-import { User } from 'src/models/user';
+import { UserForLogin } from 'src/models/userForLogin';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
                 private alertifyService: AlertifyService) { }
 
     loginForm: FormGroup;
-    user: User = new User();
+    user: UserForLogin = new UserForLogin();
 
     createLoginForm() {
       this.loginForm = this.formBuilder.group({
@@ -40,6 +40,8 @@ export class LoginComponent implements OnInit {
       }
       this.accountService.login(this.user);
     }
+
+    
 
   }
 
